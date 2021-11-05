@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// colors:
+//body text: #4d4d4d
+// blue text: #009b9a
+
+// // Graphical variables
+// @import "config/fonts";
+// @import "config/colors";
+// @import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+
+body {
+  font-family: verdana, arial, helvetica, sans-serif;
+  color: #4d4d4d;
+}
+
+.current-stats_heading {
+  color: #009b9a;
+}
+
+.add-icon {
+  font-size: 10rem;
+}
+
+.add-icon {
+  color: red;
+}
+
+.custom-border-bottom:after {
+  content: ""; /* This is necessary for the pseudo element to work. */
+  display: block; /* This will put the pseudo element on its own line. */
+  margin: 0 auto; /* This will center the border. */
+  width: 50%; /* Change this to whatever width you want. */
+  padding-top: 20px; /* This creates some space between the element and the border. */
+  border-bottom: 1px solid black; /* This creates the border. Replace black with whatever color you want. */
+}
+
+.flash.alert:empty {
+  display: none;
+  padding: 0;
+}
+
+.flash.alert {
+  background-color: yellow;
+}
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+
+// X-Large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
+
+// XX-Large devices (larger desktops, 1400px and up)
+// @media (min-width: 1400px) { ... }
