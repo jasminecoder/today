@@ -56,3 +56,5 @@ gem 'bootstrap', '~> 5.1.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
+gem "chartkick"
+gem 'groupdate'

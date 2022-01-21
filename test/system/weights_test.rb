@@ -15,7 +15,7 @@ class WeightsTest < ApplicationSystemTestCase
     click_on "New Weight"
 
     fill_in "User", with: @weight.user_id
-    fill_in "Weight", with: @weight.weight
+    fill_in "Weight", with: @weight.value
     click_on "Create Weight"
 
     assert_text "Weight was successfully created"
@@ -27,7 +27,7 @@ class WeightsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "User", with: @weight.user_id
-    fill_in "Weight", with: @weight.weight
+    fill_in "Weight", with: @weight.value
     click_on "Update Weight"
 
     assert_text "Weight was successfully updated"

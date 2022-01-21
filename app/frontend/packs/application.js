@@ -7,34 +7,54 @@ import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
+import "chartkick/chart.js";
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+require("jquery");
 
 import "bootstrap";
+import "bootstrap-datepicker";
 
 function sel(x) {
   return document.querySelector(x);
 }
 
+function enableDisableOkButton() {
+  if (sel("#create-weight-modal form").checkValidity()) {
+    sel("#save-weight-btn").removeAttribute("disabled");
+  } else {
+    sel("#save-weight-btn").setAttribute("disabled", "true");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   sel("#add-weight-btn").addEventListener("click", function () {
     sel("#weight-field").value = null;
-    sel("#weighed-on-field").value = new Date().toISOString().split("T")[0];
+    // sel("#weighed-on-field").value = new Date().toLocaleDateString();
+    // sel("#weighed-on-field").value = new Date().toISOString().split("T")[0];
   });
 
   sel("#create-weight-modal").addEventListener("shown.bs.modal", function () {
     sel("#weight-field").focus();
+    enableDisableOkButton();
   });
 
-  sel("#weight-field,#weighed-on").addEventListener("input", function () {
-    if (sel("#create-weight-modal form").checkValidity()) {
-      sel("#save-weight-btn").removeAttribute("disabled");
-    } else {
-      sel("#save-weight-btn").setAttribute("disabled", "true");
-    }
+  sel("#weight-field").addEventListener("input", function () {
+    console.log("#weight-field changed");
+    enableDisableOkButton();
   });
+
+  sel("#weighed-on-field").addEventListener("focus", function () {
+    console.log("#weighed-on-field changed");
+    enableDisableOkButton();
+  });
+
+  // sel("#weighed-on-field").addEventListener("changeDate", function () {
+  //   console.log("#weighed-on-field changed");
+  //   enableDisableOkButton();
+  // });
 });
 
 // element.removeAttribute(attrName);

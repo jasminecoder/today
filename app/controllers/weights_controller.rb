@@ -29,6 +29,7 @@ before_action :set_weight, only: %i[ update destroy ]
 
     # Only allow a list of trusted parameters through.
     def weight_params
-      params.require(:weight).permit(:weight, :user_id, :weighed_on)
+      original_params = params.require(:weight).permit(:value, :user_id, :weighed_on)
+      original_params.merge({weighed_on: Date.strptime(original_params.delete(:weighed_on), '%m/%d/%Y')})
     end
 end

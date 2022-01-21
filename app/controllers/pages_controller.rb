@@ -3,12 +3,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @weights = current_user.weights.order("weighed_on DESC")
+    @weights = current_user.weights
     @weight = current_user.weights.new
   end
-  
- 
-  
- 
-
-end
+ end

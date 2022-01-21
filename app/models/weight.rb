@@ -1,4 +1,8 @@
 class Weight < ApplicationRecord
-  validates :weight, :weighed_on, presence: true
+  validates :value, :weighed_on, presence: true
   belongs_to :user
+
+  def weighed_today?
+    weighed_on.today?
+  end
 end
